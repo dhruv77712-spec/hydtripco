@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HydTrip Co.</title>
+
+<style>
+body {margin:0;font-family:sans-serif;background:#0a1428;color:white}
+
+/* NAV */
+.nav {
+display:flex;justify-content:space-between;
+padding:15px;background:#0a1428;position:sticky;top:0
+}
+.nav a {color:white;text-decoration:none;margin:10px;cursor:pointer}
+
+/* SECTIONS */
+.section {display:none;padding:20px}
+.active {display:block}
+
+/* HERO */
+.hero {
+padding:60px 20px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+background-size:cover;
+}
+
+.btn {
+background:#00c896;padding:10px 20px;
+border-radius:20px;color:black;text-decoration:none
+}
+
+/* CARDS */
+.cards {display:flex;gap:10px;overflow:auto}
+.card {
+background:#162447;border-radius:12px;
+min-width:200px;cursor:pointer
+}
+.card img {
+width:100%;height:130px;object-fit:cover;
+border-radius:12px
+}
+.card h3 {padding:10px}
+
+/* DETAILS */
+.details-box {
+background:#162447;padding:20px;
+border-radius:15px
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="nav">
+<h2>✈️ HydTrip</h2>
+<div>
+<a onclick="show('home')">Home</a>
+<a onclick="show('trips')">Trips</a>
+<a onclick="show('hyd')">Hyderabad</a>
+</div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="section active">
+<div class="hero">
+<h1>Your Journey,<br>Our Priority</h1>
+<p>Premium travel experiences from Hyderabad</p>
+<a class="btn" onclick="show('trips')">Explore Trips</a>
+</div>
+</div>
+
+<!-- TRIPS -->
+<div id="trips" class="section">
+
+<h2>Popular Trips</h2>
+
+<div class="cards">
+
+<div class="card" onclick="openDetails('Goa Escape','₹6,999','https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<h3>Goa</h3>
+</div>
+
+<div class="card" onclick="openDetails('Manali Retreat','₹8,999','https://images.unsplash.com/photo-1501785888041-af3ef285b470')">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<h3>Manali</h3>
+</div>
+
+<div class="card" onclick="openDetails('Coorg Experience','₹7,999','https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<h3>Coorg</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- HYDERABAD -->
+<div id="hyd" class="section">
+
+<h2>Explore Hyderabad</h2>
+<p style="color:#aaa">Local experiences & city attractions</p>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7">
+<h3>Charminar</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1606293926249-ed22e1d3c30d">
+<h3>Golconda Fort</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1622467827416-9d82d9e8f1f2">
+<h3>Ramoji Film City</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be">
+<h3>Hussain Sagar</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593696954577-ab3d39317b97">
+<h3>Birla Mandir</h3>
+</div>
+
+</div>
+
+<h2>Weekend Getaways</h2>
+
+<div class="cards">
+
+<div class="card" onclick="openDetails('Araku Valley','₹3,999','https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<h3>Araku</h3>
+</div>
+
+<div class="card" onclick="openDetails('Srisailam Trip','₹4,999','https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<h3>Srisailam</h3>
+</div>
+
+<div class="card" onclick="openDetails('Warangal Trip','₹3,499','https://images.unsplash.com/photo-1589802829985-817e51171b92')">
+<img src="https://images.unsplash.com/photo-1589802829985-817e51171b92">
+<h3>Warangal</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- DETAILS -->
+<div id="details" class="section">
+
+<div class="details-box">
+<img id="img" style="width:100%;border-radius:10px">
+<h2 id="title"></h2>
+
+<h3 id="price" style="color:#00c896"></h3>
+
+<p>
+✔ Luxury Hotel Stay<br>
+✔ Sightseeing Included<br>
+✔ Pickup & Drop<br>
+✔ Premium Experience
+</p>
+
+<a href="https://wa.me/919064809681" class="btn">Book Now</a>
+</div>
+
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'))
+document.getElementById(id).classList.add('active')
+}
+
+function openDetails(name,price,img){
+show('details')
+document.getElementById('title').innerText=name
+document.getElementById('price').innerText=price
+document.getElementById('img').src=img
+}
+</script>
+
+</body>
+</html>
