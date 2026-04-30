@@ -1,6 +1,203 @@
 <!DOCTYPE html>
-<html>
-<body style="background:black;color:white;text-align:center;padding:50px;">
-<h1>HYDTRIP NEW VERSION 🔥</h1>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HydTrip Co.</title>
+
+<style>
+body{margin:0;font-family:'Segoe UI';background:#0b1220;color:white}
+
+/* NAVBAR */
+.nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 40px;background:#0d1b2a;position:sticky;top:0;z-index:10
+}
+.nav a{color:#ccc;margin:0 10px;text-decoration:none}
+.nav .btn{background:#fbbf24;color:black;padding:10px 20px;border-radius:25px}
+
+/* HERO */
+.hero{
+height:90vh;display:flex;align-items:center;padding:60px;
+background:linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0.2)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+background-size:cover
+}
+.hero h1{font-size:60px;margin:0}
+.hero span{color:#fbbf24}
+
+/* SECTION */
+.section{padding:50px}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px
+}
+
+/* CARD */
+.card{
+border-radius:15px;overflow:hidden;cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.5)
+}
+.card img{width:100%;height:180px;object-fit:cover}
+.overlay{
+position:relative;
+background:linear-gradient(transparent,black);
+margin-top:-80px;
+padding:15px
+}
+.price{color:#fbbf24;font-weight:bold}
+
+/* STRIP */
+.strip{
+background:#111;padding:20px;display:flex;justify-content:space-around
+}
+
+/* FOOTER */
+.footer{
+background:#0d1b2a;padding:30px;text-align:center;margin-top:40px
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+<h2>✈️ HydTrip Co.</h2>
+<div>
+<a href="#trips">Trips</a>
+<a href="#hyd">Hyderabad</a>
+<a href="#ne">North East</a>
+</div>
+<a id="navBtn" class="btn">Book on WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<div>
+<h1>Your Journey,<br><span>Our Priority</span></h1>
+<p>Handpicked trips from Hyderabad</p>
+<a class="btn" href="#trips">Explore Trips</a>
+</div>
+</div>
+
+<!-- TRIPS -->
+<div id="trips" class="section">
+<h2>Explore Top Destinations</h2>
+
+<div class="grid">
+
+<div class="card" onclick="book('Goa','₹6,999')">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div class="overlay">
+<h3>Goa</h3>
+<p class="price">₹6,999</p>
+</div>
+</div>
+
+<div class="card" onclick="book('Manali','₹8,999')">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="overlay">
+<h3>Manali</h3>
+<p class="price">₹8,999</p>
+</div>
+</div>
+
+<div class="card" onclick="book('Coorg','₹7,999')">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="overlay">
+<h3>Coorg</h3>
+<p class="price">₹7,999</p>
+</div>
+</div>
+
+<div class="card" onclick="book('Araku Valley','₹3,999')">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<div class="overlay">
+<h3>Araku Valley</h3>
+<p class="price">₹3,999</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- HYDERABAD -->
+<div id="hyd" class="section">
+<h2>Explore Hyderabad</h2>
+
+<div class="grid">
+
+<div class="card" onclick="book('Charminar','₹499')">
+<img src="https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7">
+<div class="overlay"><h3>Charminar</h3><p class="price">₹499</p></div>
+</div>
+
+<div class="card" onclick="book('Golconda Fort','₹699')">
+<img src="https://images.unsplash.com/photo-1606293926249-ed22e1d3c30d">
+<div class="overlay"><h3>Golconda Fort</h3><p class="price">₹699</p></div>
+</div>
+
+<div class="card" onclick="book('Ramoji Film City','₹1499')">
+<img src="https://images.unsplash.com/photo-1622467827416-9d82d9e8f1f2">
+<div class="overlay"><h3>Ramoji Film City</h3><p class="price">₹1,499</p></div>
+</div>
+
+</div>
+</div>
+
+<!-- NORTH EAST -->
+<div id="ne" class="section">
+<h2>North East Packages (From Siliguri)</h2>
+
+<div class="grid">
+
+<div class="card" onclick="book('Darjeeling Tour','₹5,999')">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="overlay"><h3>Darjeeling</h3><p class="price">₹5,999</p></div>
+</div>
+
+<div class="card" onclick="book('Sikkim Tour','₹8,999')">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<div class="overlay"><h3>Sikkim</h3><p class="price">₹8,999</p></div>
+</div>
+
+<div class="card" onclick="book('Kalimpong Trip','₹4,499')">
+<img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d">
+<div class="overlay"><h3>Kalimpong</h3><p class="price">₹4,499</p></div>
+</div>
+
+<div class="card" onclick="book('Changu Lake Trip','₹6,499')">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+<div class="overlay"><h3>Changu Lake</h3><p class="price">₹6,499</p></div>
+</div>
+
+</div>
+</div>
+
+<!-- STRIP -->
+<div class="strip">
+<div>✔ Best Prices</div>
+<div>✔ Secure Travel</div>
+<div>✔ 24/7 Support</div>
+<div>✔ Custom Trips</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>📞 +91 9064809681</p>
+<p>HydTrip Co. • Hyderabad</p>
+</div>
+
+<script>
+function book(place,price){
+let msg="Hi, I want to book "+place+" package ("+price+")";
+window.open("https://wa.me/919064809681?text="+encodeURIComponent(msg))
+}
+</script>
+
 </body>
 </html>
