@@ -6,23 +6,59 @@
 <title>HydTrip Co.</title>
 
 <style>
-body{margin:0;font-family:Segoe UI;background:#0a1428;color:white}
-.nav{display:flex;justify-content:space-between;padding:15px;background:#0d1b2a}
-.nav a{color:#ccc;margin:10px;cursor:pointer;text-decoration:none}
-.section{display:none;padding:20px}
-.active{display:block}
-.hero{
-height:80vh;display:flex;flex-direction:column;justify-content:center;
-padding:30px;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
-background-size:cover;
+body{margin:0;font-family:Segoe UI;background:#0b1220;color:white}
+
+/* NAVBAR */
+.nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 40px;background:rgba(0,0,0,0.7);
+position:fixed;width:100%;z-index:100
 }
-.btn{background:#fbbf24;padding:10px 20px;border-radius:20px;color:black;cursor:pointer;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
-.card{background:#14213d;border-radius:12px;overflow:hidden;cursor:pointer}
-.card img{width:100%;height:150px;object-fit:cover}
-.price{color:#fbbf24;font-size:24px}
+.nav a{color:#ddd;margin:0 10px;text-decoration:none}
+.nav .btn{background:#fbbf24;color:black;padding:10px 20px;border-radius:20px}
+
+/* HERO */
+.hero{
+height:100vh;display:flex;align-items:center;padding:60px;
+background:linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0.2)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+background-size:cover
+}
+.hero h1{font-size:60px;margin:0}
+.hero span{color:#fbbf24}
+
+/* SECTION */
+.section{padding:60px}
+
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
+}
+.card{
+position:relative;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer
+}
+.card img{width:100%;height:200px;object-fit:cover}
+.card .overlay{
+position:absolute;bottom:0;
+background:linear-gradient(transparent,black);
+padding:15px;width:100%
+}
+.price{color:#fbbf24;font-weight:bold}
+
+/* STRIP */
+.strip{
+background:#111;padding:20px;display:flex;justify-content:space-around;margin-top:40px
+}
+
+/* FOOTER */
+.footer{
+background:#0d1b2a;padding:30px;text-align:center;margin-top:40px
+}
 </style>
 </head>
 
@@ -31,95 +67,89 @@ background-size:cover;
 <div class="nav">
 <h2>✈️ HydTrip</h2>
 <div>
-<a onclick="show('home')">Home</a>
-<a onclick="show('trips')">Trips</a>
-<a onclick="show('hyd')">Hyderabad</a>
+<a href="#trips">Trips</a>
+<a href="#hyd">Hyderabad</a>
 </div>
+<a id="navBtn" class="btn">Book on WhatsApp</a>
 </div>
 
-<!-- HOME -->
-<div id="home" class="section active">
 <div class="hero">
-<h1>Travel Made Premium</h1>
-<p>Explore trips from Hyderabad</p>
-<a class="btn" onclick="show('trips')">Explore</a>
+<div>
+<h1>Your Journey,<br><span>Our Priority</span></h1>
+<p>Premium trips from Hyderabad</p>
 </div>
 </div>
 
-<!-- TRIPS -->
 <div id="trips" class="section">
-<h2>Trips</h2>
+<h2>Explore Top Destinations</h2>
+
 <div class="grid">
 
 <div class="card" onclick="openPkg('Goa','₹6,999','https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div class="overlay">
 <h3>Goa</h3>
+<p class="price">₹6,999</p>
+</div>
 </div>
 
 <div class="card" onclick="openPkg('Manali','₹8,999','https://images.unsplash.com/photo-1501785888041-af3ef285b470')">
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="overlay">
 <h3>Manali</h3>
+<p class="price">₹8,999</p>
+</div>
+</div>
+
+<div class="card" onclick="openPkg('Coorg','₹7,999','https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="overlay">
+<h3>Coorg</h3>
+<p class="price">₹7,999</p>
+</div>
 </div>
 
 </div>
 </div>
 
-<!-- HYDERABAD -->
 <div id="hyd" class="section">
-<h2>Hyderabad Packages</h2>
+<h2>Explore Hyderabad</h2>
 
 <div class="grid">
 
-<div class="card" onclick="openPkg('Hyderabad Full Tour','₹2,999','https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7')">
+<div class="card" onclick="openPkg('Charminar','₹499','https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7')">
 <img src="https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7">
-<h3>Full Tour</h3>
-</div>
-
-<div class="card" onclick="openPkg('Charminar Visit','₹499','https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7')">
-<img src="https://images.unsplash.com/photo-1588413335653-2c61e8a3f5d7">
+<div class="overlay">
 <h3>Charminar</h3>
+<p class="price">₹499</p>
+</div>
+</div>
+
+<div class="card" onclick="openPkg('Golconda','₹699','https://images.unsplash.com/photo-1606293926249-ed22e1d3c30d')">
+<img src="https://images.unsplash.com/photo-1606293926249-ed22e1d3c30d">
+<div class="overlay">
+<h3>Golconda Fort</h3>
+<p class="price">₹699</p>
+</div>
 </div>
 
 </div>
 </div>
 
-<!-- PACKAGE -->
-<div id="package" class="section">
+<div class="strip">
+<div>✔ Best Prices</div>
+<div>✔ Secure Travel</div>
+<div>✔ 24/7 Support</div>
+</div>
 
-<img id="img" style="width:100%;height:250px;object-fit:cover">
-
-<a onclick="show('trips')">← Back</a>
-
-<h1 id="title"></h1>
-<p class="price" id="price"></p>
-
-<p>
-✔ Hotel<br>
-✔ Sightseeing<br>
-✔ Pickup
-</p>
-
-<p>📞 9064809681</p>
-
-<a id="bookBtn" class="btn">Book on WhatsApp</a>
-
+<div class="footer">
+© 2025 HydTrip Co.
 </div>
 
 <script>
-function show(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'))
-document.getElementById(id).classList.add('active')
-}
-
 function openPkg(name,price,img){
-show('package')
-document.getElementById('title').innerText=name+" Package"
-document.getElementById('price').innerText=price
-document.getElementById('img').src=img
-
-let msg="Hi, I want to book "+name+" package ("+price+")";
-document.getElementById("bookBtn").href=
-"https://wa.me/919064809681?text="+encodeURIComponent(msg);
+let msg="Hi I want to book "+name+" package ("+price+")";
+window.open("https://wa.me/919064809681?text="+encodeURIComponent(msg))
 }
 </script>
 
